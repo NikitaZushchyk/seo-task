@@ -11,7 +11,7 @@ class SearchSerpRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,10 @@ class SearchSerpRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'keyword' => ['required', 'string', 'max:700'],
+            'domain' => ['required', 'string', 'max:255'],
+            'location_code' => ['required', 'integer'],
+            'language_code' => ['required', 'string', 'size:2'],
         ];
     }
 }

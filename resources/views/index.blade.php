@@ -88,11 +88,19 @@
             resultContainer.classList.remove('hidden');
 
             if (data.status === 'success') {
-                resultBox.className = 'p-4 rounded-md border bg-green-50 border-green-200 text-green-800';
-                resultBox.innerHTML = `<strong>Success!</strong> ${data.message}`;
+                resultBox.className = 'p-4 rounded-md border bg-green-50 border-green-200 text-green-900';
+                resultBox.innerHTML = `
+                        <h3 class="text-lg font-bold mb-2 text-green-700">🏆 Site Found!</h3>
+                        <p><strong>Position (Organic):</strong> <span class="text-xl font-black">${data.data.rank}</span></p>
+                        <p><strong>Absolute Position:</strong> ${data.data.absolute_rank}</p>
+                        <p class="mt-2"><strong>Page:</strong> <a href="${data.data.url}" target="_blank" class="text-blue-600 underline">${data.data.title}</a></p>
+                    `;
+            } else if (data.status === 'not_found') {
+                resultBox.className = 'p-4 rounded-md border bg-yellow-50 border-yellow-200 text-yellow-800';
+                resultBox.innerHTML = `<strong>Notice:</strong> ${data.message}`;
             } else {
                 resultBox.className = 'p-4 rounded-md border bg-red-50 border-red-200 text-red-800';
-                resultBox.innerHTML = `<strong>Notice:</strong> ${data.message}`;
+                resultBox.innerHTML = `<strong>Error:</strong> ${data.message}`;
             }
 
         } catch (error) {
