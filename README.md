@@ -18,6 +18,8 @@ To run this project locally without Docker, you need to have the following insta
 **1. Clone the repository and navigate into the directory:**
 ```bash
 git clone https://github.com/NikitaZushchyk/seo-task.git
+```
+```bash
 cd seo-task
 ```
 **2. Install PHP dependencies:**
